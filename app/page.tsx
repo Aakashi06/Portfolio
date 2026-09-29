@@ -1,3 +1,7 @@
+"use client";
+
+import { useEffect, useState } from "react";
+
 const projects = [
   {
     name: "DocuMind",
@@ -38,6 +42,39 @@ const blogs = [
 ];
 
 export default function Home() {
+  const [isDark, setIsDark] = useState(true);
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("portfolio-theme");
+
+    const dark = savedTheme !== "light";
+
+    setIsDark(dark);
+
+    document.documentElement.classList.toggle("dark", dark);
+    document.documentElement.setAttribute(
+      "data-theme",
+      dark ? "dark" : "light"
+    );
+  }, []);
+
+  function handleThemeToggle() {
+    const newIsDark = !isDark;
+
+    setIsDark(newIsDark);
+
+    document.documentElement.classList.toggle("dark", newIsDark);
+    document.documentElement.setAttribute(
+      "data-theme",
+      newIsDark ? "dark" : "light"
+    );
+
+    localStorage.setItem(
+      "portfolio-theme",
+      newIsDark ? "dark" : "light"
+    );
+  }
+
   return (
     <main>
       {/* Navbar */}
@@ -53,11 +90,24 @@ export default function Home() {
           <a href="#blogs">Blog</a>
           <a href="/resume.pdf">Resume</a>
 
-          <button aria-label="Toggle theme">☾</button>
+          <button
+            type="button"
+            className={`theme-toggle ${isDark ? "is-dark" : "is-light"}`}
+            onClick={handleThemeToggle}
+            aria-label={
+              isDark
+                ? "Switch website to light theme"
+                : "Switch website to dark theme"
+            }
+          >
+            <span className="theme-toggle-track">
+              <span className="theme-toggle-thumb" />
+            </span>
+          </button>
         </div>
       </nav>
 
-      {/* Hero / About */}
+      {/* Hero */}
       <section id="about" className="hero">
         <p className="eyebrow">AI ENGINEER</p>
 
@@ -124,8 +174,8 @@ export default function Home() {
                 </li>
 
                 <li>
-                  Managed and maintained the company website, taking ownership
-                  of functionality, updates, performance, and user experience.
+                  Managed and maintained the company website, updates,
+                  performance, and user experience.
                 </li>
 
                 <li>
@@ -205,7 +255,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Blogs */}
+      {/* Blog */}
       <section id="blogs">
         <p className="eyebrow">BLOG</p>
         <h2>Things I&apos;ve written.</h2>
