@@ -1,69 +1,249 @@
-import Image from "next/image";
+const projects = [
+  {
+    name: "DocuMind",
+    description:
+      "AI document intelligence system that lets users interact with documents using retrieval, contextual answers, and page-level citations.",
+    github: "https://github.com/Aakashi06/DocuMind",
+  },
+  {
+    name: "PaperScout",
+    description:
+      "Research assistant that discovers relevant academic papers and turns scattered research into structured insights.",
+    github: "https://github.com/Aakashi06",
+  },
+  {
+    name: "Voice AI Agent",
+    description:
+      "AI voice agent focused on real-time speech interaction, agentic workflows, and tool calling.",
+    github: "https://github.com/Aakashi06",
+  },
+];
+
+const blogs = [
+  {
+    title: "How I Think About Building AI Agents",
+    image: "/blogs/ai-agents.jpg",
+    link: "#",
+  },
+  {
+    title: "Building My First Voice AI Agent",
+    image: "/blogs/voice-ai.jpg",
+    link: "#",
+  },
+  {
+    title: "Understanding RAG Beyond the Basics",
+    image: "/blogs/rag.jpg",
+    link: "#",
+  },
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main>
+      {/* Navbar */}
+      <nav>
+        <a href="#about" className="logo">
+          AAKASHI
+        </a>
+
+        <div className="nav-links">
+          <a href="#about">About</a>
+          <a href="#work">Work</a>
+          <a href="#projects">Projects</a>
+          <a href="#blogs">Blog</a>
+          <a href="/resume.pdf">Resume</a>
+
+          <button aria-label="Toggle theme">☾</button>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
+      </nav>
+
+      {/* Hero / About */}
+      <section id="about" className="hero">
+        <p className="eyebrow">AI ENGINEER</p>
+
+        <h1>
+          Hi, I&apos;m Aakashi.
+          <br />
+          I build intelligent systems.
+        </h1>
+
+        <p className="hero-description">
+          I&apos;m an AI Engineer focused on building practical AI systems,
+          with a particular interest in AI agents, voice AI, LLMs, RAG, and
+          model fine-tuning.
+        </p>
+
+        <div className="hero-links">
           <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            href="https://github.com/Aakashi06"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
+            GitHub ↗
           </a>
+
           <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            href="https://www.linkedin.com/in/aakashi-jaiswal-6b448524b/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Documentation
+            LinkedIn ↗
+          </a>
+
+          <a
+            href="https://x.com/Aakashi_123"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            X ↗
           </a>
         </div>
-      </main>
-    </div>
+      </section>
+
+      {/* Experience */}
+      <section id="work">
+        <p className="eyebrow">WORK</p>
+        <h2>Experience.</h2>
+
+        <div className="experience">
+          <article className="experience-item">
+            <div className="experience-meta">
+              <span>Mar 2025 — Dec 2025</span>
+              <span>Remote · Surat</span>
+            </div>
+
+            <div className="experience-content">
+              <h3>Founder&apos;s Office Intern</h3>
+              <p className="company">AdroPardi</p>
+
+              <ul>
+                <li>
+                  Worked across product, technology, marketing, creative, and
+                  operations, turning ideas and requirements into actionable
+                  execution.
+                </li>
+
+                <li>
+                  Managed and maintained the company website, taking ownership
+                  of functionality, updates, performance, and user experience.
+                </li>
+
+                <li>
+                  Created and edited marketing and social media content across
+                  YouTube, Instagram, and other platforms.
+                </li>
+
+                <li>
+                  Wrote blogs and website content to support brand communication
+                  and online visibility.
+                </li>
+
+                <li>
+                  Supported day-to-day startup operations, logistics,
+                  coordination, and technical execution.
+                </li>
+              </ul>
+            </div>
+          </article>
+
+          <article className="experience-item">
+            <div className="experience-meta">
+              <span>Sept 2024 — Dec 2024</span>
+              <span>Remote</span>
+            </div>
+
+            <div className="experience-content">
+              <h3>Front-end Engineer</h3>
+              <p className="company">Teelure</p>
+
+              <ul>
+                <li>
+                  Built and managed the company website, including product
+                  pages, updates, and website changes.
+                </li>
+
+                <li>
+                  Integrated the payment gateway for online customer payments.
+                </li>
+
+                <li>
+                  Managed product listings, product information, and website
+                  content.
+                </li>
+
+                <li>
+                  Worked on SEO to improve the website&apos;s search visibility.
+                </li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      {/* Projects */}
+      <section id="projects">
+        <p className="eyebrow">PROJECTS</p>
+        <h2>Selected work.</h2>
+
+        <div className="projects">
+          {projects.map((project) => (
+            <article className="project-item" key={project.name}>
+              <div>
+                <h3>{project.name}</h3>
+                <p>{project.description}</p>
+              </div>
+
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                GitHub ↗
+              </a>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      {/* Blogs */}
+      <section id="blogs">
+        <p className="eyebrow">BLOG</p>
+        <h2>Things I&apos;ve written.</h2>
+
+        <div className="blogs">
+          {blogs.map((blog) => (
+            <article className="blog-card" key={blog.title}>
+              <a
+                href={blog.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="blog-image-link"
+              >
+                <img src={blog.image} alt={blog.title} />
+              </a>
+
+              <div className="blog-info">
+                <h3>{blog.title}</h3>
+
+                <a
+                  href={blog.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="read-link"
+                >
+                  Read ↗
+                </a>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer>
+        <span>AAKASHI JAISWAL</span>
+        <span>© 2026</span>
+      </footer>
+    </main>
   );
 }

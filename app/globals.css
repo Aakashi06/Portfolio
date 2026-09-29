@@ -2,25 +2,421 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --foreground: #111111;
+  --muted: #666666;
+  --border: #e5e5e5;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #000000;
+    --foreground: #ffffff;
+    --muted: #999999;
+    --border: #222222;
   }
 }
 
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
+  margin: 0;
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+}
+
+main {
+  width: min(1100px, calc(100% - 48px));
+  margin: 0 auto;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+nav {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  background: var(--background);
+  z-index: 10;
+}
+
+.logo {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.nav-links a {
+  font-size: 14px;
+  color: var(--muted);
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: var(--foreground);
+}
+
+.nav-links button {
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--foreground);
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.nav-links button:hover {
+  background: var(--foreground);
+  color: var(--background);
+}
+
+/* =========================
+   SECTIONS
+========================= */
+
+section {
+  border-bottom: 1px solid var(--border);
+}
+
+.eyebrow {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: var(--muted);
+}
+
+/* =========================
+   HERO / ABOUT
+========================= */
+
+#about {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 100px 0;
+}
+
+#about h1 {
+  max-width: 900px;
+  margin: 20px 0;
+  font-size: clamp(52px, 8vw, 100px);
+  line-height: 0.95;
+  letter-spacing: -0.06em;
+  font-weight: 500;
+}
+
+.hero-description {
+  max-width: 600px;
+  margin: 25px 0 30px;
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.hero-links {
+  display: flex;
+  gap: 24px;
+}
+
+.hero-links a {
+  font-size: 14px;
+  border-bottom: 1px solid var(--foreground);
+  padding-bottom: 3px;
+  transition: opacity 0.2s ease;
+}
+
+.hero-links a:hover {
+  opacity: 0.5;
+}
+
+/* =========================
+   SECTION HEADINGS
+========================= */
+
+#work,
+#projects,
+#blogs {
+  padding: 120px 0;
+}
+
+section h2 {
+  margin: 20px 0 50px;
+  font-size: clamp(40px, 5vw, 64px);
+  line-height: 1;
+  letter-spacing: -0.05em;
+  font-weight: 500;
+}
+
+/* =========================
+   EXPERIENCE
+========================= */
+
+.experience {
+  border-top: 1px solid var(--border);
+}
+
+.experience-item {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 60px;
+  padding: 50px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.experience-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.experience-content h3 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+}
+
+.experience-content .company {
+  margin: 6px 0 25px;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.experience-content ul {
+  max-width: 700px;
+  margin: 0;
+  padding-left: 18px;
+}
+
+.experience-content li {
+  margin-bottom: 12px;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+/* =========================
+   PROJECTS
+========================= */
+
+.projects {
+  border-top: 1px solid var(--border);
+}
+
+.project-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 40px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.project-item h3 {
+  margin: 0 0 12px;
+  font-size: 28px;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+}
+
+.project-item p {
+  max-width: 650px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.project-item a {
+  white-space: nowrap;
+  font-size: 14px;
+  color: var(--muted);
+  transition: color 0.2s ease;
+}
+
+.project-item a:hover {
+  color: var(--foreground);
+}
+
+/* =========================
+   BLOGS
+========================= */
+
+#blogs {
+  padding: 120px 0;
+}
+
+.blogs {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 50px 30px;
+}
+
+.blog-card {
+  display: block;
+  padding: 0;
+}
+
+.blog-image-link {
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  background: var(--border);
+}
+
+.blog-image-link img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.blog-image-link:hover img {
+  transform: scale(1.03);
+}
+
+.blog-info {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  padding-top: 18px;
+}
+
+.blog-info h3 {
+  margin: 0;
+  max-width: 500px;
+  font-size: 20px;
+  line-height: 1.3;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+.read-link {
+  flex-shrink: 0;
+  color: var(--muted);
+  font-size: 14px;
+  transition: color 0.2s ease;
+}
+
+.read-link:hover {
+  color: var(--foreground);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--muted);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+  main {
+    width: min(100% - 32px, 1100px);
+  }
+
+  nav {
+    height: 70px;
+  }
+
+  .nav-links {
+    gap: 14px;
+  }
+
+  .nav-links a:nth-child(2),
+  .nav-links a:nth-child(3) {
+    display: none;
+  }
+
+  #about {
+    min-height: 80vh;
+    padding: 80px 0;
+  }
+
+  #about h1 {
+    font-size: clamp(48px, 14vw, 76px);
+  }
+
+  #work,
+  #projects,
+  #blogs {
+    padding: 80px 0;
+  }
+
+  .experience-item {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    padding: 40px 0;
+  }
+
+  .project-item {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .blogs {
+    grid-template-columns: 1fr;
+    gap: 45px;
+  }
+
+  .blog-info h3 {
+    font-size: 19px;
+  }
+
+  footer {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 8px;
+  }
 }
