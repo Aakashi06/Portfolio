@@ -129,7 +129,7 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            GitHub 
+            GitHub
           </a>
 
           <a
@@ -137,7 +137,7 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            LinkedIn 
+            LinkedIn
           </a>
 
           <a
@@ -145,7 +145,7 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            X 
+            X
           </a>
         </div>
       </section>
@@ -174,8 +174,8 @@ export default function Home() {
                 </li>
 
                 <li>
-                  Managed and maintained the company website, updates,
-                  performance, and user experience.
+                  Managed and maintained the company website, including
+                  updates, performance, and user experience improvements.
                 </li>
 
                 <li>
@@ -248,7 +248,7 @@ export default function Home() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                GitHub ↗
+                GitHub
               </a>
             </article>
           ))}
@@ -281,7 +281,7 @@ export default function Home() {
                   rel="noopener noreferrer"
                   className="read-link"
                 >
-                  Read ↗
+                  Read
                 </a>
               </div>
             </article>

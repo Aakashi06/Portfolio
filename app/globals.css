@@ -170,12 +170,10 @@ nav {
     background-color 0.3s ease;
 }
 
-/* Dark mode */
 .theme-toggle.is-dark .theme-toggle-thumb {
   transform: translateX(0);
 }
 
-/* Light mode */
 .theme-toggle.is-light .theme-toggle-thumb {
   transform: translateX(18px);
 }
@@ -241,6 +239,10 @@ section {
   line-height: 1.6;
 }
 
+/* =========================
+   SOCIAL LINKS
+========================= */
+
 .hero-links {
   display: flex;
   gap: 24px;
@@ -261,6 +263,12 @@ section {
 
 .hero-links a:hover {
   opacity: 0.5;
+}
+
+/* Prevent any arrow/pseudo-element */
+.hero-links a::before,
+.hero-links a::after {
+  content: none !important;
 }
 
 /* =========================
@@ -337,7 +345,7 @@ section h2 {
   max-width: 700px;
 
   margin: 0;
-  padding-left: 18px;
+  padding-left: 20px;
 }
 
 .experience-content li {
@@ -347,6 +355,10 @@ section h2 {
 
   font-size: 15px;
   line-height: 1.65;
+}
+
+.experience-content li:last-child {
+  margin-bottom: 0;
 }
 
 /* =========================
@@ -402,6 +414,12 @@ section h2 {
   color: var(--foreground);
 }
 
+/* Prevent project link arrows */
+.project-item a::before,
+.project-item a::after {
+  content: none !important;
+}
+
 /* =========================
    BLOGS
 ========================= */
@@ -427,6 +445,12 @@ section h2 {
   aspect-ratio: 16 / 9;
 
   background: var(--border);
+}
+
+/* Don't add arrows to blog image links */
+.blog-image-link::before,
+.blog-image-link::after {
+  content: none !important;
 }
 
 .blog-image-link img {
@@ -479,6 +503,12 @@ section h2 {
 
 .read-link:hover {
   color: var(--foreground);
+}
+
+/* Prevent Read link arrows */
+.read-link::before,
+.read-link::after {
+  content: none !important;
 }
 
 /* =========================
