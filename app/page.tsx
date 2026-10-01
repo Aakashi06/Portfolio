@@ -129,7 +129,7 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            GitHub ↗
+            GitHub 
           </a>
 
           <a
@@ -137,7 +137,7 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            LinkedIn ↗
+            LinkedIn 
           </a>
 
           <a
@@ -145,7 +145,7 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            X ↗
+            X 
           </a>
         </div>
       </section>
