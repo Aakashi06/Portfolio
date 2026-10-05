@@ -91,7 +91,7 @@ export default function Home() {
 
           {/* Replace this URL with your Google Drive resume link */}
           <a
-            href="YOUR_GOOGLE_DRIVE_RESUME_LINK"
+            href="https://drive.google.com/file/d/11RKOJhyz0Yda4cDmEFcTluuNDhUVGYzS/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
           >
