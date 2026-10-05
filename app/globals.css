@@ -2,7 +2,7 @@
 
 /* =========================
    THEME VARIABLES
-========================= */
+   ========================= */
 
 :root {
   --background: #000000;
@@ -27,7 +27,7 @@ html[data-theme="light"] {
 
 /* =========================
    BASE
-========================= */
+   ========================= */
 
 * {
   box-sizing: border-box;
@@ -47,7 +47,6 @@ html {
 
 body {
   font-family: Arial, Helvetica, sans-serif;
-
   transition:
     background-color 0.3s ease,
     color 0.3s ease;
@@ -69,7 +68,7 @@ main {
 
 /* =========================
    NAVBAR
-========================= */
+   ========================= */
 
 nav {
   height: 80px;
@@ -116,8 +115,8 @@ nav {
 }
 
 /* =========================
-   REAL THEME SWITCH
-========================= */
+   THEME SWITCH
+   ========================= */
 
 .theme-toggle {
   width: 46px;
@@ -180,7 +179,7 @@ nav {
 
 /* =========================
    GLOBAL THEME ELEMENTS
-========================= */
+   ========================= */
 
 section {
   border-bottom: 1px solid var(--border);
@@ -201,7 +200,7 @@ section {
 
 /* =========================
    HERO
-========================= */
+   ========================= */
 
 #about {
   min-height: 80vh;
@@ -241,7 +240,7 @@ section {
 
 /* =========================
    SOCIAL LINKS
-========================= */
+   ========================= */
 
 .hero-links {
   display: flex;
@@ -265,7 +264,6 @@ section {
   opacity: 0.5;
 }
 
-/* Prevent any arrow/pseudo-element */
 .hero-links a::before,
 .hero-links a::after {
   content: none !important;
@@ -273,11 +271,12 @@ section {
 
 /* =========================
    SECTION HEADINGS
-========================= */
+   ========================= */
 
 #work,
 #projects,
-#blogs {
+#gallery,
+#contact {
   padding: 120px 0;
 }
 
@@ -295,7 +294,7 @@ section h2 {
 
 /* =========================
    EXPERIENCE
-========================= */
+   ========================= */
 
 .experience {
   border-top: 1px solid var(--border);
@@ -363,157 +362,213 @@ section h2 {
 
 /* =========================
    PROJECTS
-========================= */
+   ========================= */
 
 .projects {
   border-top: 1px solid var(--border);
 }
 
 .project-item {
-  display: flex;
+  border-bottom: 1px solid var(--border);
+}
 
+.project-content {
+  display: flex;
+  align-items: flex-start;
   justify-content: space-between;
 
   gap: 40px;
 
-  padding: 40px 0;
-
-  border-bottom: 1px solid var(--border);
+  padding: 38px 0;
 }
 
-.project-item h3 {
-  margin: 0 0 12px;
+.project-content h3 {
+  margin: 0 0 10px;
 
-  font-size: 28px;
+  font-size: 26px;
   font-weight: 500;
+
+  line-height: 1.15;
 
   letter-spacing: -0.03em;
 }
 
-.project-item p {
-  max-width: 650px;
+.project-content p {
+  max-width: 700px;
 
   margin: 0;
 
   color: var(--muted);
 
-  font-size: 16px;
+  font-size: 15px;
   line-height: 1.6;
 }
 
-.project-item a {
-  white-space: nowrap;
+.project-github {
+  flex-shrink: 0;
 
-  font-size: 14px;
+  padding-top: 3px;
+
   color: var(--muted);
 
-  transition: color 0.2s ease;
+  font-size: 14px;
+
+  border-bottom: 1px solid transparent;
+
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
 }
 
-.project-item a:hover {
+.project-github:hover {
   color: var(--foreground);
+
+  border-color: var(--foreground);
 }
 
-/* Prevent project link arrows */
-.project-item a::before,
-.project-item a::after {
+.project-github::before,
+.project-github::after {
   content: none !important;
 }
 
 /* =========================
-   BLOGS
-========================= */
+   GALLERY
+   ========================= */
 
-.blogs {
-  display: grid;
-
-  grid-template-columns: repeat(2, 1fr);
-
-  gap: 50px 30px;
+#gallery {
+  overflow: hidden;
 }
 
-.blog-card {
-  display: block;
-  padding: 0;
+.gallery-wrapper {
+  width: 100%;
+  overflow: hidden;
+  margin-top: 20px;
 }
 
-.blog-image-link {
-  display: block;
+.gallery-track {
+  display: flex;
+  width: max-content;
+  gap: 20px;
+  align-items: center;
+
+  animation: gallery-scroll 45s linear infinite;
+}
+
+.gallery-item {
+  height: 210px;
+  width: auto;
+
+  flex-shrink: 0;
 
   overflow: hidden;
 
-  aspect-ratio: 16 / 9;
+  border: 1px solid var(--border);
+  border-radius: 4px;
 
-  background: var(--border);
+  background: var(--background);
 }
 
-/* Don't add arrows to blog image links */
-.blog-image-link::before,
-.blog-image-link::after {
-  content: none !important;
-}
-
-.blog-image-link img {
-  width: 100%;
+.gallery-item img {
+  width: auto;
   height: 100%;
 
   display: block;
 
-  object-fit: cover;
+  object-fit: contain;
 
   transition: transform 0.4s ease;
 }
 
-.blog-image-link:hover img {
-  transform: scale(1.03);
+.gallery-item:hover img {
+  transform: scale(1.04);
 }
 
-.blog-info {
+@keyframes gallery-scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(calc(-50% - 10px));
+  }
+}
+
+.gallery-wrapper:hover .gallery-track {
+  animation-play-state: paused;
+}
+
+/* =========================
+   CONTACT
+   ========================= */
+
+.contact-description {
+  max-width: 600px;
+
+  margin: -20px 0 35px;
+
+  color: var(--muted);
+
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.contact-info {
   display: flex;
-
-  align-items: flex-start;
-  justify-content: space-between;
-
-  gap: 20px;
-
-  padding-top: 18px;
+  flex-direction: column;
+  gap: 24px;
 }
 
-.blog-info h3 {
-  margin: 0;
+.contact-email {
+  width: fit-content;
 
-  max-width: 500px;
+  color: var(--foreground);
 
   font-size: 20px;
-  line-height: 1.3;
-  font-weight: 500;
 
-  letter-spacing: -0.02em;
+  border-bottom: 1px solid var(--border);
+
+  padding-bottom: 5px;
+
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
 }
 
-.read-link {
-  flex-shrink: 0;
+.contact-email:hover {
+  color: var(--muted);
 
+  border-color: var(--foreground);
+}
+
+.contact-socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.contact-socials a {
   color: var(--muted);
 
   font-size: 14px;
 
-  transition: color 0.2s ease;
+  border-bottom: 1px solid transparent;
+
+  padding-bottom: 3px;
+
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
 }
 
-.read-link:hover {
+.contact-socials a:hover {
   color: var(--foreground);
-}
 
-/* Prevent Read link arrows */
-.read-link::before,
-.read-link::after {
-  content: none !important;
+  border-color: var(--foreground);
 }
 
 /* =========================
    FOOTER
-========================= */
+   ========================= */
 
 footer {
   min-height: 120px;
@@ -531,7 +586,7 @@ footer {
 
 /* =========================
    MOBILE
-========================= */
+   ========================= */
 
 @media (max-width: 700px) {
   main {
@@ -562,39 +617,61 @@ footer {
 
   #work,
   #projects,
-  #blogs {
+  #gallery,
+  #contact {
     padding: 80px 0;
   }
 
   .experience-item {
     grid-template-columns: 1fr;
-
     gap: 25px;
-
     padding: 40px 0;
   }
 
-  .project-item {
+  .project-content {
     flex-direction: column;
-    gap: 20px;
+    gap: 18px;
+    padding: 32px 0;
   }
 
-  .blogs {
-    grid-template-columns: 1fr;
-
-    gap: 45px;
+  .project-content h3 {
+    font-size: 24px;
   }
 
-  .blog-info h3 {
-    font-size: 19px;
+  .project-content p {
+    font-size: 15px;
+  }
+
+  .project-github {
+    padding-top: 0;
+  }
+
+  .gallery-track {
+    gap: 14px;
+    animation-duration: 35s;
+  }
+
+  .gallery-item {
+    height: 170px;
+    width: auto;
+  }
+
+  .contact-description {
+    font-size: 16px;
+  }
+
+  .contact-email {
+    font-size: 16px;
+  }
+
+  .contact-socials {
+    gap: 18px;
   }
 
   footer {
     flex-direction: column;
-
     align-items: flex-start;
     justify-content: center;
-
     gap: 8px;
   }
 }
