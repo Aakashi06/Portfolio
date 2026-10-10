@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useEffect, useState } from "react";
@@ -6,41 +7,39 @@ const projects = [
   {
     name: "Bodh",
     description:
-      "Multilingual voice AI learning companion that lets users ask questions naturally and learn through voice conversations in English, Hindi, Hinglish, and supported Indian languages.",
-    image: "/projects/bodh.png",
+      "A multilingual voice AI learning companion that enables natural, real-time conversations using speech recognition, LLMs, and text-to-speech.",
     github: "https://github.com/Aakashi06/Bodh",
-  },
-  {
-    name: "DocuMind",
-    description:
-      "AI document intelligence system that lets users upload PDFs, DOCX, or TXT files and interact with their documents using retrieval, contextual answers, and page-level citations.",
-    image: "/projects/documind.png",
-    github: "https://github.com/Aakashi06/DocuMind",
-  },
-  {
-    name: "Job Search Agent",
-    description:
-      "AI agent that turns plain-language job preferences into a short list of matching roles by asking follow-up questions, searching the web, and extracting relevant job information.",
-    image: "/projects/job-search-agent.png",
-    github: "https://github.com/Aakashi06/Job-Search-Agent",
-  },
-  {
-    name: "Aura CV",
-    description:
-      "A simple web app for discovering modern, minimal, and aesthetic CV templates, filtering them by style, and starting a professional resume in just a few clicks.",
-    image: "/projects/aura-cv.png",
-    github: "https://github.com/Aakashi06/aura-cv",
   },
   {
     name: "Nanocode",
     description:
-      "A coding CLI agent that helps developers work with their codebase through natural-language commands and AI-powered coding workflows.",
-    image: "/projects/nanocode.png",
+      "A lightweight CLI-based AI coding agent harness with tool calling, file editing, shell execution, permission controls, sub-agents, and context management.",
     github: "https://github.com/Aakashi06/Nanocode",
+  },
+  {
+    name: "Lumi",
+    description:
+      "A local AI-powered knowledge graph that transforms documents into interactive 3D concept maps, connects related knowledge, and supports document-grounded questions.",
+    github: "https://github.com/Aakashi06/Lumi",
+  },
+  {
+    name: "Job Search Agent",
+    description:
+      "An AI agent that turns natural-language job preferences into matching opportunities through follow-up questions, web search, and job information extraction.",
+    github: "https://github.com/Aakashi06/Job-Search-Agent",
+  },
+  {
+    name: "DocuMind",
+    description:
+      "An AI document intelligence system that lets users upload documents, retrieve relevant information, and ask questions using RAG with source citations.",
+    github: "https://github.com/Aakashi06/DocuMind",
   },
 ];
 
-const galleryImages = Array.from({ length: 12 }, (_, index) => index + 1);
+const galleryImages = Array.from(
+  { length: 12 },
+  (_, index) => index + 1
+);
 
 export default function Home() {
   const [isDark, setIsDark] = useState(true);
@@ -63,7 +62,10 @@ export default function Home() {
 
     setIsDark(newIsDark);
 
-    document.documentElement.classList.toggle("dark", newIsDark);
+    document.documentElement.classList.toggle(
+      "dark",
+      newIsDark
+    );
     document.documentElement.setAttribute(
       "data-theme",
       newIsDark ? "dark" : "light"
@@ -89,7 +91,6 @@ export default function Home() {
           <a href="#projects">Projects</a>
           <a href="#gallery">Gallery</a>
 
-          {/* Replace this URL with your Google Drive resume link */}
           <a
             href="https://drive.google.com/file/d/11RKOJhyz0Yda4cDmEFcTluuNDhUVGYzS/view?usp=sharing"
             target="_blank"
@@ -185,8 +186,8 @@ export default function Home() {
 
                 <li>
                   Managed and maintained the company website,
-                  including updates, performance, and user experience
-                  improvements.
+                  including updates, performance, and user
+                  experience improvements.
                 </li>
 
                 <li>
@@ -201,8 +202,8 @@ export default function Home() {
                 </li>
 
                 <li>
-                  Supported day-to-day startup operations, logistics,
-                  coordination, and technical execution.
+                  Supported day-to-day startup operations,
+                  logistics, coordination, and technical execution.
                 </li>
               </ul>
             </div>
@@ -225,18 +226,18 @@ export default function Home() {
                 </li>
 
                 <li>
-                  Integrated the payment gateway for online customer
-                  payments.
+                  Integrated the payment gateway for online
+                  customer payments.
                 </li>
 
                 <li>
-                  Managed product listings, product information, and
-                  website content.
+                  Managed product listings, product information,
+                  and website content.
                 </li>
 
                 <li>
-                  Worked on SEO to improve the website&apos;s search
-                  visibility.
+                  Worked on SEO to improve the website&apos;s
+                  search visibility.
                 </li>
               </ul>
             </div>
@@ -251,7 +252,10 @@ export default function Home() {
 
         <div className="projects">
           {projects.map((project) => (
-            <article className="project-item" key={project.name}>
+            <article
+              className="project-item"
+              key={project.name}
+            >
               <div className="project-content">
                 <div>
                   <h3>{project.name}</h3>
@@ -314,9 +318,9 @@ export default function Home() {
         <h2>Let&apos;s connect.</h2>
 
         <p className="contact-description">
-          Open to AI projects, collaborations, and interesting ideas.
-          Feel free to reach out if you&apos;d like to build something
-          together.
+          Open to AI projects, collaborations, and interesting
+          ideas. Feel free to reach out if you&apos;d like to
+          build something together.
         </p>
 
         <div className="contact-info">
