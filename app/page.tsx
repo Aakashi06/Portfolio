@@ -92,7 +92,7 @@ export default function Home() {
           <a href="#gallery">Gallery</a>
 
           <a
-            href="https://drive.google.com/file/d/11RKOJhyz0Yda4cDmEFcTluuNDhUVGYzS/view?usp=sharing"
+            href="https://drive.google.com/file/d/1TRtO4s2hTWcPPLQ8lH2l08UwfLsQEpR5/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
           >
